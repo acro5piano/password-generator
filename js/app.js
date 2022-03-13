@@ -21,7 +21,7 @@ Vue.createApp({
   methods: {
     async copyToClipboard() {
       await navigator.clipboard.writeText(this.passwordWithFixedLength)
-      this.message = 'Copied!'
+      this.message = 'Copied to clipboard!'
       setTimeout(() => (this.message = ''), 4000)
     },
   },

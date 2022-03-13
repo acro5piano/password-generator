@@ -15,6 +15,7 @@
     <div class="max-w-screen-lg mx-auto">
       <div id="app">
         <div class="p-3">
+          <form @submit.prevent="copyToClipboard">
           <div class="my-3">
             <label>
               <div>Identifier</div>
@@ -38,7 +39,7 @@
               {{password.slice(0, 8)}} ...
             </div>
             <div class="my-3" v-if="!showPassword">
-              <button @click="showPassword = true" class="px-3 py-1 border border-blue-600 text-blue-600 rounded">
+              <button type="button" @click="showPassword = true" class="px-3 py-1 border border-blue-600 text-blue-600 rounded">
                 Show password
               </button>
             </div>
@@ -46,14 +47,15 @@
               {{passwordWithFixedLength}}
             </div>
             <div>
-              <button @click="copyToClipboard" class="px-3 py-1 bg-blue-600 text-white rounded">
+              <button type="submit" @click="copyToClipboard" class="px-3 py-1 bg-blue-600 text-white rounded">
                 Copy
               </button>
             </div>
           </div>
+          </form>
         </div>
         <div class="fixed bottom-0 left-0 w-full" v-if="message.length > 0">
-          <div class="w-full sm:w-36 mx-auto bg-gray-800 text-white p-3">
+          <div class="w-full sm:w-64 sm:rounded sm:mb-2 mx-auto bg-gray-800 text-white p-3">
             {{message}}
           </div>
         </div>
